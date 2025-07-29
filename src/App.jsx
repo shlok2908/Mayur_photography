@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Loader from './components/Loader';
 import Home from './pages/Home';
 import Photography from './pages/Photography';
+import AlbumDetails from "./pages/AlbumDetails";
 import Films from './pages/Films';
 import FilmAlbum from './pages/FilmAlbum';
 import Testimonials from './pages/Testimonials';
@@ -44,6 +45,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/photography" element={<Photography />} />
+          <Route path="/photography/:slug" element={<AlbumDetails />} />
           <Route path="/films" element={<Films />} />
           <Route path="/films/:album" element={<FilmAlbum />} />
           <Route path="/testimonials" element={<Testimonials />} />

@@ -51,52 +51,61 @@ export default function Home() {
         />
       </section>
 
-     {/* Gallery Grid Section */}
-      <section className="pb-16 text-center">
-        <h1 className="text-3xl md:text-4xl font-display mb-12">
-          Here is a curated collection of our weddings
-        </h1>
+    {/* Gallery Grid Section */}
+<section className="pb-16 text-center">
+  <h1 className="text-3xl md:text-4xl font-display mb-12">
+    Here is a curated collection of our weddings
+  </h1>
 
-        <div className="flex flex-wrap justify-center gap-6 px-4">
-          {galleryImages.map((src, i) => {
-            const match = src.match(/gallery\/([^/]+)\/cover/i);
-            let folderName = match ? decodeURIComponent(match[1]).replace(/-/g, ' ') : 'Gallery';
-            folderName = folderName.replace(/\b\w/g, (c) => c.toUpperCase());
-
-            const location = "Jaipur, India"; // Replace with dynamic if needed
-
-            return (
-              <div
-                key={i}
-                className="group relative w-[300px] h-[375px]  shadow-md"
-              >
-                {/* Background Image */}
-                <img
-                  src={src}
-                  alt={folderName}
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Hover Card */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="bg-white/90 p-6 text-center rounded-sm shadow-lg w-[85%]">
-                    <h3 className="text-xl font-display text-black capitalize tracking-wide leading-tight">
-                      {folderName}
-                    </h3>
-                    <p className="text-sm font-semibold text-neutral-800 mt-1">
-                      {location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+  <div className="flex flex-wrap justify-center gap-6 px-4">
+    {[
+      {
+        src: "https://unsplash.it/400/500?image=1005",
+        name: "Amisha & Priyesh",
+        location: "Dubai, UAE",
+      },
+      {
+        src: "https://unsplash.it/400/500?image=1027",
+        name: "Kit & Shlok",
+        location: "Jaipur, India",
+      },
+      {
+        src: "https://unsplash.it/400/500?image=1035",
+        name: "Riya & Aarav",
+        location: "Udaipur, India",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="group relative w-[300px] h-[400px] shadow-md overflow-hidden"
+      >
+        {/* Background Image */}
+        <img
+          src={item.src}
+          alt={item.name}
+          className="object-cover w-full h-full"
+        />
+      {/* Hover Card */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="bg-white/80 w-[85%] h-[75%] flex flex-col items-center justify-center text-center shadow-md">
+            <h3 className="text-xl font-display text-black tracking-wide leading-tight">
+              {item.name}
+            </h3>
+            <p className="text-sm font-semibold text-neutral-800 mt-2">
+              {item.location}
+            </p>
+          </div>
         </div>
-        {/* Button */}
-        <button className="mt-8 px-8 py-3 bg-black text-white rounded-xl font-display text-lg tracking-wide hover:bg-gray-900 transition">
-          SEE MORE
-        </button>
-      </section>
+      </div>
+      ))}
+      </div>
+
+  {/* Button */}
+  <button className="mt-8 px-8 py-3 bg-black text-white rounded-xl font-display text-lg tracking-wide hover:bg-gray-900 transition">
+    SEE MORE
+  </button>
+</section>
+
 
       {/* Instagram Reels Section */}
       <section className="py-16 bg-[#ededed] text-center">
