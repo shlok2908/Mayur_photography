@@ -16,7 +16,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         >
           <img
-            src="/Logo.png" 
+            src="/logo.png" 
             alt="Mayur Logo"
             className="h-10 w-auto object-contain"
           />

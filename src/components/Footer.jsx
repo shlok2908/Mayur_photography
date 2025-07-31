@@ -44,7 +44,7 @@ export default function Footer() {
         {/* Right: Logo */}
         <div className="rounded px-2 py-1">
           <img
-            src="/Logo.png"
+            src="/logo.png"
             alt="Mayur Logo"
             className="h-10 w-auto object-contain"
           />
