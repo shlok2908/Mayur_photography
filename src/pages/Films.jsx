@@ -33,10 +33,10 @@ const albums = [
 
 export default function Films() {
   return (
-    <main className="min-h-screen bg-offwhite text-black py-8 px-4">
+    <main className="min-h-screen bg-offwhite text-black pt-[64px] px-4">
       <div className="max-w-4xl mx-auto">
         {/* Hero Video */}
-        <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-10">
+        <div className="w-full aspect-video overflow-hidden shadow-lg mb-10">
           <video
             src={heroVideo}
             controls

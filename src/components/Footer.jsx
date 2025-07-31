@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-xs text-black border-t border-white/10 mt-6 pt-4 pb-4">
+    <footer className="bg-white text-xs text-black border-t border-white/10 pt-2 pb-4">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
 
         {/* Left: Social Media */}

@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="pb-0">
       {/* Hero Video Section */}
-      <section className="w-full flex justify-center items-center pt-20 pb-8">
+      <section className="w-full flex justify-center items-center pt-[64px] pb-8">
         <video
           className="w-full h-[60vh]  object-cover"
           src="https://www.w3schools.com/html/mov_bbb.mp4"

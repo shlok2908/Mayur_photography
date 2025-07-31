@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-50 top-0 left-0 bg-black/30 backdrop-blur-lg px-6 py-4 text-white">
+    <nav className="fixed w-full z-50 top-0 left-0 px-6 py-4 bg-white shadow text-Black">
       <div className="relative flex items-center justify-between">
         {/* Left: Logo */}
         <Link
@@ -16,7 +16,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         >
           <img
-            src="/header.png" 
+            src="/Logo.png" 
             alt="Mayur Logo"
             className="h-10 w-auto object-contain"
           />

@@ -70,7 +70,7 @@ export default function FilmAlbum() {
 
   if (!albumData) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center">
+      <main className="pt-[64px] min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-2xl font-display mb-4">Album not found</h1>
         <Link to="/films" className="text-blue-600 underline">Back to Films</Link>
       </main>

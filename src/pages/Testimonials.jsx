@@ -2,57 +2,55 @@ import React from "react";
 
 // --- Container 1: Image Left, Text Right ---
 function TestimonialLeft({ name, image, text }) {
-return (
-  <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-0 md:gap-10">
-    {/* 🖼️ Image Block - top-right curve on all devices */}
-    <div className="overflow-hidden h-64 md:h-auto rounded-tr-[150px]">
-      <img src={image} alt={name} className="w-full h-full object-cover" />
-    </div>
+  return (
+    <div className="pt-[64px] sm:pt-10 grid grid-cols-1 md:grid-cols-2 items-stretch gap-0 md:gap-10">
+      {/* 🖼️ Image */}
+      <div className="overflow-hidden h-40 sm:h-52 md:h-auto rounded-tr-[80px] md:rounded-tr-[150px]">
+        <img src={image} alt={name} className="w-full h-full object-cover" />
+      </div>
 
-    {/* 📄 Text Block 
-         - bottom-left curve on mobile
-         - top-left curve on desktop 
-    */}
-    <div className="bg-[#c7c9bb] 
-                rounded-bl-[150px] md:rounded-bl-none 
-                md:rounded-tl-[150px]
-                p-8 md:p-10 
-                flex flex-col justify-center min-h-[280px] 
-                overflow-hidden relative">
-      <h2 className="text-3xl font-serif text-black mb-6">{name}</h2>
-      <p className="text-black font-light text-lg leading-relaxed">{text}</p>
+      {/* 📄 Text */}
+      <div className="bg-[#c7c9bb]
+                  rounded-bl-[60px] md:rounded-bl-none 
+                  md:rounded-tl-[150px]
+                  p-3 sm:p-4 md:p-10 
+                  flex flex-col justify-center min-h-[180px] sm:min-h-[220px] md:min-h-[240px]
+                  overflow-hidden relative">
+        <h2 className="text-base sm:text-lg md:text-3xl font-serif text-black mb-2 sm:mb-4">
+          {name}
+        </h2>
+        <p className="text-xs sm:text-sm md:text-base font-light leading-relaxed text-black">
+          {text}
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 // --- Container 2: Image Right, Text Left ---
 function TestimonialRight({ name, image, text }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-0 md:gap-10">
-      {/* Text: 
-          - bottom-right curve on mobile
-          - top-left & top-right curve on desktop (keep original desktop curves)
-          - Added overflow-hidden and relative to fix text overflow
-      */}
-      <div className="bg-[#c7c9bb] 
-                rounded-br-[150px] md:rounded-br-none
-                md:rounded-tr-[150px]
-                md:rounded-tl-none
-                p-8 md:p-10 
-                flex flex-col justify-center min-h-[280px]
-                order-2 md:order-1
-                overflow-hidden relative">
-        <h2 className="text-3xl font-serif text-black mb-6">{name}</h2>
-        <p className="text-black font-light text-lg leading-relaxed">{text}</p>
+      {/* 📄 Text */}
+      <div className="bg-[#c7c9bb]
+                  rounded-br-[60px] md:rounded-br-none
+                  md:rounded-tr-[150px]
+                  md:rounded-tl-none
+                  p-3 sm:p-4 md:p-10 
+                  flex flex-col justify-center min-h-[180px] sm:min-h-[220px] md:min-h-[240px]
+                  order-2 md:order-1
+                  overflow-hidden relative">
+        <h2 className="text-base sm:text-lg md:text-3xl font-serif text-black mb-2 sm:mb-4">
+          {name}
+        </h2>
+        <p className="text-xs sm:text-sm md:text-base font-light leading-relaxed text-black">
+          {text}
+        </p>
       </div>
 
-      {/* Image: top left curve on mobile and desktop */}
-      <div className="overflow-hidden h-64 md:h-auto 
-                      rounded-tl-[150px] md:rounded-tl-[150px] 
-                      rounded-tr-0 md:rounded-tr-0 
-                      rounded-bl-0 md:rounded-bl-0 
-                      rounded-br-0 md:rounded-br-0
+      {/* 🖼️ Image */}
+      <div className="overflow-hidden h-40 sm:h-52 md:h-auto 
+                      rounded-tl-[80px] md:rounded-tl-[150px]
                       order-1 md:order-2">
         <img src={image} alt={name} className="w-full h-full object-cover" />
       </div>
@@ -60,7 +58,7 @@ function TestimonialRight({ name, image, text }) {
   );
 }
 
-// Testimonials array (unchanged)
+// Testimonials array
 const testimonials = [
   {
     name: "Chandni & Jainish",
@@ -79,11 +77,11 @@ const testimonials = [
   },
 ];
 
-// Main export
+// Main component
 export default function AlternatingTestimonials() {
   return (
-    <div className="min-h-screen bg-white py-20 px-4 sm:px-10">
-      <div className="max-w-7xl mx-auto space-y-24">
+    <div className="min-h-screen bg-white py-6 sm:py-12 px-3 sm:px-6">
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16 md:space-y-24">
         {testimonials.map((testimonial, idx) =>
           idx % 2 === 0 ? (
             <TestimonialLeft key={testimonial.name} {...testimonial} />
