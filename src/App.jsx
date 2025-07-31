@@ -20,7 +20,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // 3s loading
+    const timer = setTimeout(() => setLoading(false), 5000); // 5s loading
     return () => clearTimeout(timer);
   }, [location.pathname]);
 

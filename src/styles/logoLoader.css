@@ -1,6 +1,5 @@
-/* src/styles/logoLoader.css */
 .loader-screen {
-  background-color: #000;
+  background: #000;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -8,40 +7,30 @@
   align-items: center;
   z-index: 9999;
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
 }
 
 .logo-mask {
-  position: relative;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
 }
 
-.logo-static,
-.logo-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
+.logo-svg {
   width: 100%;
   height: 100%;
 }
 
-.fill-clip {
-  overflow: hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  animation: fillUp 2.5s ease-out forwards;
+/* Animate using translateY instead of y */
+.fill-rect {
+  transform: translateY(100%);
+  animation: fillUp 5s ease-in-out forwards;
 }
 
 @keyframes fillUp {
   from {
-    top: 100%;
+    transform: translateY(100%);
   }
   to {
-    top: 0%;
+    transform: translateY(0%);
   }
 }
