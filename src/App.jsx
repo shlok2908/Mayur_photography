@@ -1,46 +1,33 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Loader from './components/Loader';
-import Home from './pages/Home';
-import Photography from './pages/Photography';
+// src/App.jsx
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+import Home from "./pages/Home";
+import Photography from "./pages/Photography";
 import AlbumDetails from "./pages/AlbumDetails";
-import Films from './pages/Films';
-import FilmAlbum from './pages/FilmAlbum';
-import Testimonials from './pages/Testimonials';
-import AboutUs from './pages/AboutUs';
-import ContactUs from './pages/ContactUs';
-import JoinUs from './pages/JoinUs';
-import Stories from './pages/Stories';
+import Films from "./pages/Films";
+import FilmAlbum from "./pages/FilmAlbum";
+import Testimonials from "./pages/Testimonials";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import JoinUs from "./pages/JoinUs";
+import Stories from "./pages/Stories";
 
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handlePageLoad = () => {
-      setLoading(false);
-    };
-
-    // Wait until all assets (images, etc) are fully loaded
-    if (document.readyState === 'complete') {
-      handlePageLoad();
-    } else {
-      window.addEventListener('load', handlePageLoad);
-    }
-
-    // Cleanup on unmount
-    return () => {
-      window.removeEventListener('load', handlePageLoad);
-    };
-  }, [location.pathname]); // trigger on every route change
+    const timer = setTimeout(() => setLoading(false), 3000); // 3s loading
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
     <>
       {loading && <Loader />}
-
-      <div className={`${loading ? 'pointer-events-none overflow-hidden h-screen' : ''}`}>
+      <div className={`${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
