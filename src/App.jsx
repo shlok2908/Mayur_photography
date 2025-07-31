@@ -20,23 +20,10 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
-    const handleLoad = () => {
-      setLoading(false);
-    };
-
-    // Wait until DOM fully loaded (images, fonts etc.)
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
-
-    return () => window.removeEventListener("load", handleLoad);
+    const timer = setTimeout(() => setLoading(false), 3000); // 3s loading
+    return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  
   return (
     <>
       {loading && <Loader />}
