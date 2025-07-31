@@ -40,9 +40,14 @@ export default function Footer() {
           <div className="flex items-center justify-center gap-2"><Clock className="w-4 h-4" /> Mon - Sat, 10:00 AM - 7:00 PM</div>
         </div>
 
+        
         {/* Right: Logo */}
-        <div className="text-xl font-display font-bold uppercase tracking-wider">
-          Mayur
+        <div className="rounded px-2 py-1">
+          <img
+            src="/Logo.png"
+            alt="Mayur Logo"
+            className="h-10 w-auto object-contain"
+          />
         </div>
       </div>
 

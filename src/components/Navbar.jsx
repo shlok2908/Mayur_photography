@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,11 +12,16 @@ export default function Navbar() {
         {/* Left: Logo */}
         <Link
           to="/"
-          className="min-w-[120px] text-2xl font-display tracking-widest cursor-pointer z-10"
+          className="z-10 flex items-center"
           onClick={() => setIsOpen(false)}
         >
-          Mayur
+          <img
+            src="/header.png" 
+            alt="Mayur Logo"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
+
 
         {/* Center: Desktop Menu (absolutely centered) */}
         <ul className="hidden md:flex gap-8 text-sm uppercase font-light absolute left-1/2 -translate-x-1/2">
