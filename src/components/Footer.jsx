@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-2">
           <h3 className="font-semibold text-sm uppercase">Follow Us</h3>
           <div className="flex gap-4">
-            <a href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/_mayurmakwanaphotography_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram className="w-5 h-5 hover:text-[#E1306C]" />
             </a>
             <a href="https://www.facebook.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

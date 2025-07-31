@@ -244,7 +244,7 @@ export default function Home() {
   {/* Button */}
   <div className="text-center mt-8">
     <a
-      href="https://www.instagram.com/"
+      href="https://www.instagram.com/_mayurmakwanaphotography_"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-block bg-black text-white font-semibold px-6 py-2 rounded-full hover:bg-gray-800 transition"
