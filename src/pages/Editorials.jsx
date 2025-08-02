@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Masonry from "react-masonry-css";
-import "react-image-lightbox/style.css";
-import Lightbox from "react-image-lightbox";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const editorialImages = [
   "https://images.unsplash.com/photo-1519125323398-675f0ddb6308",
@@ -14,7 +14,7 @@ const editorialImages = [
 ];
 
 export default function Editorials() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
   const breakpointColumnsObj = {
@@ -23,6 +23,8 @@ export default function Editorials() {
     768: 2,
     500: 2,
   };
+
+  const slides = editorialImages.map((src) => ({ src: `${src}?auto=format&fit=max&q=95` }));
 
   return (
     <div className="bg-[#ede3d7] min-h-screen pt-[64px] px-4">
@@ -50,14 +52,14 @@ export default function Editorials() {
               className="cursor-pointer overflow-hidden rounded-lg shadow-md"
               onClick={() => {
                 setPhotoIndex(index);
-                setIsOpen(true);
+                setOpen(true);
               }}
             >
               <img
                 src={`${img}?w=800&auto=format&fit=crop&q=90`}
                 alt={`Editorial ${index}`}
                 loading="lazy"
-                className="w-full  transition-transform duration-500"
+                className="w-full transition-transform duration-500"
               />
             </div>
           ))}
@@ -65,24 +67,13 @@ export default function Editorials() {
       </div>
 
       {/* Lightbox */}
-      {isOpen && (
-        <Lightbox
-          mainSrc={`${editorialImages[photoIndex]}?auto=format&fit=max&q=95`}
-          nextSrc={`${editorialImages[(photoIndex + 1) % editorialImages.length]}?auto=format&fit=max&q=95`}
-          prevSrc={`${editorialImages[(photoIndex + editorialImages.length - 1) % editorialImages.length]}?auto=format&fit=max&q=95`}
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex(
-              (photoIndex + editorialImages.length - 1) % editorialImages.length
-            )
-          }
-          onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % editorialImages.length)
-          }
-          animationDuration={500}
-          enableZoom={false}
-        />
-      )}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={photoIndex}
+        slides={slides}
+        animation={{ fade: 300 }}
+      />
     </div>
   );
 }
