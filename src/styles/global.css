@@ -14,6 +14,27 @@ html,body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
+
+.masonry-column {
+  background-clip: padding-box;
+}
+
+.masonry-column > div {
+  margin-bottom: 16px;
+}
+/* Lightbox outer overlay */
+.ril__outer {
+  background: transparent !important;         /* remove black shadow */
+  backdrop-filter: blur(20px) !important;     /* apply blur only */
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* Ensure the inner container has no overlay color */
+.ril__inner {
+  background: transparent !important;
+}
+
+
 .stroke-gray-400 {
   -webkit-text-stroke: 2px rgb(156, 163, 175); /* gray-400 */
   color: transparent;

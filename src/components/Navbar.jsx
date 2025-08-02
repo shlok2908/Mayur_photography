@@ -27,8 +27,8 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-8 text-sm uppercase font-light absolute left-1/2 -translate-x-1/2">
           <li><Link className="nav-link" to="/photography">Photography</Link></li>
           <li><Link className="nav-link" to="/films">Films</Link></li>
-          <li><Link className="nav-link" to="/testimonials">Testimonials</Link></li>
-          <li><Link className="nav-link" to="/about-us">About Us</Link></li>
+          <li><Link className="nav-link" to="/editorials">Editorial</Link></li>
+          <li><Link className="nav-link" to="/testimonials">Blogs</Link></li>
           <li><Link className="nav-link" to="/contact-us">Contact Us</Link></li>
           <li><Link className="nav-link" to="/join-us">Join Us</Link></li>
         </ul>
@@ -50,8 +50,8 @@ export default function Navbar() {
         <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>Home</Link>
         <Link to="/photography" className="nav-link" onClick={() => setIsOpen(false)}>Photography</Link>
         <Link to="/films" className="nav-link" onClick={() => setIsOpen(false)}>Films</Link>
-        <Link to="/testimonials" className="nav-link" onClick={() => setIsOpen(false)}>Testimonials</Link>
-        <Link to="/about-us" className="nav-link" onClick={() => setIsOpen(false)}>About Us</Link>
+        <Link to="/editorials" className="nav-link" onClick={() => setIsOpen(false)}>Editorial</Link>
+        <Link to="/testimonials" className="nav-link" onClick={() => setIsOpen(false)}>Blogs</Link>
         <Link to="/contact-us" className="nav-link" onClick={() => setIsOpen(false)}>Contact Us</Link>
         <Link to="/join-us" className="nav-link" onClick={() => setIsOpen(false)}>Join Us</Link>
       </div>

@@ -10,7 +10,7 @@ import AlbumDetails from "./pages/AlbumDetails";
 import Films from "./pages/Films";
 import FilmAlbum from "./pages/FilmAlbum";
 import Testimonials from "./pages/Testimonials";
-import AboutUs from "./pages/AboutUs";
+import Editorials from "./pages/Editorials";
 import ContactUs from "./pages/ContactUs";
 import JoinUs from "./pages/JoinUs";
 import Stories from "./pages/Stories";
@@ -36,7 +36,7 @@ export default function App() {
           <Route path="/films" element={<Films />} />
           <Route path="/films/:album" element={<FilmAlbum />} />
           <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/editorials" element={<Editorials />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/stories" element={<Stories />} />

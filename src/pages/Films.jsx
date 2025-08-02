@@ -1,84 +1,78 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const heroVideo = 'https://www.w3schools.com/html/mov_bbb.mp4';
-
-const albums = [
+const films = [
   {
-    slug: 'wedding-trailer',
-    title: 'Wedding Trailer',
-    cover: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+    slug: "yashvi-karan-boho-night",
+    title: "Yashvi Karan Boho Night",
+    location: "Surat",
+    description:
+      "As the sun sets and the stars begin to twinkle, tonight we gather in the spirit of freedom and creativity. With Yashvi Karan leading the way, we embrace the magic of the night.",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail: "https://dummyimage.com/600x400/000/fff&text=Yashvi+Karan+Boho",
   },
   {
-    slug: 'insta-cut',
-    title: 'Insta Cut',
-    cover: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308',
+    slug: "yashvi-karan-wedding-teaser",
+    title: "Yashvi Karan Wedding Teaser",
+    location: "Surat",
+    description:
+      "Enveloped in petals of commitment, the varmala ceremony is a joyous expression of love—a magnificent beginning to a shared journey of dreams and laughter.",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail: "https://dummyimage.com/600x400/000/fff&text=Wedding+Teaser",
   },
   {
-    slug: 'special-ceremonies',
-    title: 'Special Ceremonies',
-    cover: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca',
-  },
-  {
-    slug: 'pre-wedding',
-    title: 'Pre Wedding Trailer',
-    cover: 'https://images.unsplash.com/photo-1465101178521-c3a6088bfa3d',
-  },
-  {
-    slug: 'teaser',
-    title: 'Teaser',
-    cover: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+    slug: "riki-sabrina",
+    title: "Riki Sabrina",
+    location: "Bali",
+    description:
+      "Riki and Sabrina's Bali prewedding video teaser is a breathtaking glimpse into their love story. Set against the backdrop of a stunning beachside, the golden sands and blue waves embrace their romance.",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    thumbnail: "https://dummyimage.com/600x400/000/fff&text=Riki+Sabrina",
   },
 ];
 
 export default function Films() {
   return (
-    <main className="min-h-screen bg-offwhite text-black pt-[64px] px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Hero Video */}
-        <div className="w-full aspect-video overflow-hidden shadow-lg mb-10">
-          <video
-            src={heroVideo}
-            controls
-            autoPlay
-            muted
-            loop
-            className="w-full h-full object-cover bg-black"
-            poster="https://dummyimage.com/1280x720/000/fff&text=Films+Hero+Video"
-          />
-        </div>
+    <main className="min-h-screen bg-[#ede3d7] text-black pt-[64px] px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <h2 className="text-center text-3xl md:text-5xl font-display mb-12">
+          Unforgettable Moments, Timeless Films
+        </h2>
 
-        {/* Custom Album Grid */}
-        <div className="grid grid-cols-2 grid-rows-3 gap-4 mb-12" style={{gridTemplateRows: 'repeat(3, 140px)'}}>
-          {/* Top left */}
-          <Link to="/films/wedding-trailer" className="relative group rounded-tl-2xl overflow-hidden shadow-lg cursor-pointer">
-            <img src={albums[0].cover} alt={albums[0].title} className="object-cover w-full h-full" />
-            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 to-transparent p-2">
-              <span className="text-white font-display text-base md:text-lg drop-shadow-lg group-hover:underline">{albums[0].title}</span>
+        {/* Films Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {films.map((film, index) => (
+            <div key={index} className="flex flex-col">
+              {/* Video */}
+              <div className="w-full aspect-video overflow-hidden shadow-lg mb-4">
+                <video
+                  src={film.video}
+                  controls
+                  poster={film.thumbnail}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Text Content */}
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg md:text-xl font-medium">{film.title}</h3>
+                <span className="text-sm italic">{film.location}</span>
+              </div>
+
+              {/* Description with line clamp */}
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4 line-clamp-3">
+                {film.description}
+              </p>
+
+              <Link
+                to={`/films/${film.slug}`}
+                className="text-sm font-semibold uppercase tracking-wide flex items-center gap-2 hover:underline"
+              >
+                Read More →
+              </Link>
             </div>
-          </Link>
-          {/* Top right (tall, rounded top-right) */}
-          <Link to="/films/insta-cut" className="relative group row-span-2 rounded-tr-[48px] overflow-hidden shadow-lg cursor-pointer">
-            <img src={albums[1].cover} alt={albums[1].title} className="object-cover w-full h-full" />
-            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 to-transparent p-2">
-              <span className="text-white font-display text-base md:text-lg drop-shadow-lg group-hover:underline">{albums[1].title}</span>
-            </div>
-          </Link>
-          {/* Middle left */}
-          <Link to="/films/special-ceremonies" className="relative group rounded-bl-2xl overflow-hidden shadow-lg cursor-pointer">
-            <img src={albums[2].cover} alt={albums[2].title} className="object-cover w-full h-full" />
-            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 to-transparent p-2">
-              <span className="text-white font-display text-base md:text-lg drop-shadow-lg group-hover:underline">{albums[2].title}</span>
-            </div>
-          </Link>
-          {/* Bottom right (wide, rounded bottom-right) */}
-          <Link to="/films/pre-wedding" className="relative group col-span-2 rounded-b-2xl overflow-hidden shadow-lg cursor-pointer row-span-1 col-span-1">
-            <img src={albums[4].cover} alt={albums[4].title} className="object-cover w-full h-full" />
-            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 to-transparent p-2">
-              <span className="text-white font-display text-base md:text-lg drop-shadow-lg group-hover:underline">{albums[4].title}</span>
-            </div>
-          </Link>
-      
+          ))}
         </div>
       </div>
     </main>
