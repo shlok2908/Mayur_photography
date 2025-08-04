@@ -13,7 +13,7 @@ import Blog from "./pages/Blog";
 import Editorials from "./pages/Editorials";
 import ContactUs from "./pages/ContactUs";
 import FAQ from "./pages/faq";
-import Stories from "./pages/Stories";
+
 import 'react-phone-input-2/lib/style.css';
 
 
@@ -41,7 +41,6 @@ export default function App() {
           <Route path="/editorials" element={<Editorials />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/stories" element={<Stories />} />
         </Routes>
         <Footer />
       </div>
