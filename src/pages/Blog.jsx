@@ -20,7 +20,7 @@ const blogPosts = [
 
 export default function BlogGrid() {
   return (
-    <section className="bg-[#f5f0e8] py-16">
+    <section className="bg-[#ede3d7]  py-16">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:px-16">
     {/* Blog Card 1 */}
     <div>

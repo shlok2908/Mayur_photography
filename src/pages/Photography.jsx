@@ -20,7 +20,7 @@ const albums = Object.entries(coverImages)
 
 export default function Photography() {
   return (
-    <div className="font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
+    <div className="font-bodoni min-h-screen bg-[#ede3d7]  text-[#111]">
      <div className="mt-16 px-4 pt-10 lg:pt-8 pb-4 max-w-6xl mx-auto">
         
         {/* Responsive Grid */}

@@ -7,7 +7,7 @@ export default {
         sans: ['"Inter"', 'sans-serif'],
       },
       colors: {
-        offwhite: '#f8f8f8',
+        beige: '#ede3d7',
         dark: '#222',
       },
     },

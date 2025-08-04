@@ -2,18 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+
 main, header, footer, section {
   margin: 0;
   padding: 0;
 }
 
-html,body {
-  height:100%;
-  background-color: #f8f8f8;
-  color: #222;
+html, body {
+  height: 100%;
+  background-color: #ede3d7; /* new background */
+  color: #7b8669  !important;          /* apply to all text globally */
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
+
+/* Ensure all text-like elements inherit color */
+h1, h2, h3, h4, h5, h6,
+p, span, li, input, textarea, select, label {
+  color: inherit !important;
+}
+
 
 .masonry-column {
   background-clip: padding-box;

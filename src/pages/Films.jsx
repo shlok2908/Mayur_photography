@@ -33,7 +33,7 @@ const films = [
 
 export default function Films() {
   return (
-    <main className="min-h-screen bg-[#ede3d7] text-black pt-[64px] px-4">
+    <main className="min-h-screen bg-[#ede3d7]  pt-[64px] px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <h2 className="text-center text-3xl md:text-5xl font-display mb-12">

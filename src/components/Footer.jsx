@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#f5f5dc] text-[#505a3c] font-serif">
+    <footer className="bg-[#ede3d7] text-[#7b8669] font-serif">
       <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
         
         {/* Logo */}

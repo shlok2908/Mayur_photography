@@ -25,7 +25,7 @@ const dummyReels = [
 
 export default function Home() {
   return (
-    <main className="pb-0">
+    <main className="bg-[#ede3d7] min-h-screen pb-0">
       {/* Hero Video Section */}
       <section className="w-full flex justify-center items-center pt-[64px] pb-8">
         <video
@@ -88,17 +88,18 @@ export default function Home() {
       </div>
 
   {/* Button */}
-  <Link
+<Link
   to="/photography"
-  className="mt-8 inline-block px-8 py-3 bg-black text-white rounded-xl font-display text-lg tracking-wide hover:bg-gray-900 transition"
+  className="mt-8 inline-block px-8 py-3 bg-[#b49c64] text-white rounded-xl font-display text-lg tracking-wide hover:opacity-90 transition"
 >
   SEE MORE
 </Link>
+
 </section>
 
 
       {/* Instagram Reels Section */}
-      <section className="py-16 bg-[#ededed] text-center">
+      <section className="py-16 bg-[#ede3d7] text-center">
         <h2 className="text-3xl md:text-4xl font-display mb-2">
           INSTAGRAM <span className="italic font-serif">reels</span>
         </h2>

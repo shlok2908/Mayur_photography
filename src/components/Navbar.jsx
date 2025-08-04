@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-50 top-0 left-0 px-6 py-4 bg-[#f6f0e9] text-black">
+    <nav className="fixed w-full z-50 top-0 left-0 px-6 py-4 bg-[#ede3d7]  text-black">
       <div className="relative flex items-center justify-between w-full">
         {/* Left: Logo */}
         <Link
@@ -87,7 +87,7 @@ export default function Navbar() {
         <Link
           to="/contact-us"
           onClick={() => setIsOpen(false)}
-          className="mt-2 bg-[#b89b59] text-white font-semibold px-6 py-2 rounded-md hover:opacity-90 transition"
+          className="mt-2 bg-[#b49c64] text-white  px-6 py-2 rounded-md hover:opacity-90 transition"
         >
           Get In Touch
         </Link>

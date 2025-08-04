@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "How can we book you?",
     answer:
-      "You can reach out via the contact form or directly email us at hello@ivoryfilms.in. We'll guide you through the process step by step."
+      "You can reach out via the contact form or directly email us at teammayurmakwana@gmail.com. We'll guide you through the process step by step."
   },
   {
     question: "What are your deliverables?",
@@ -37,7 +37,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="bg-[#f6f0e9] min-h-screen pt-[90px] py-12 sm:py-20 px-4 sm:px-8 lg:px-20 font-serif text-[#0f0f0f]">
+    <div className="bg-[#ede3d7]  min-h-screen pt-[90px] py-12 sm:py-20 px-4 sm:px-8 lg:px-20 font-serif ">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <h1 className="text-2xl sm:text-4xl md:text-5xl font-normal text-center mb-4 sm:mb-8 leading-snug">
@@ -45,7 +45,7 @@ export default function FAQ() {
         </h1>
 
         {/* Subtext */}
-        <p className="text-sm sm:text-base md:text-lg text-center mb-10 sm:mb-20 text-[#222] font-light max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base md:text-lg text-center mb-10 sm:mb-20  font-light max-w-2xl mx-auto">
           We try to answer all your questions here. If you have any further
           questions about Mayur Makwana Photography you can always contact us at{" "}
           <span className="font-semibold">teammayurmakwana@gmail.com</span>. We
@@ -75,7 +75,7 @@ export default function FAQ() {
                     isOpen ? "max-h-60 opacity-100 mt-3 sm:mt-4" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-sm sm:text-base md:text-lg text-[#2e2e2e] leading-relaxed font-light">
+                  <p className="text-sm sm:text-base md:text-lg  leading-relaxed font-light">
                     {faq.answer}
                   </p>
                 </div>

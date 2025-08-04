@@ -77,7 +77,7 @@ function AlbumDetails() {
   }
 
   return (
-    <div className="pt-[64px] font-bodoni min-h-screen bg-[#f8f5f0] text-[#111]">
+    <div className="pt-[64px] font-bodoni min-h-screen bg-[#ede3d7] text-[#111]">
       
       {/* Cover Section with Parallax */}
       {album.cover && (

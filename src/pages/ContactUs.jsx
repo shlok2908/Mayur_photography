@@ -5,7 +5,7 @@ import TextareaAutosize from "react-textarea-autosize";
 
 export default function ContactUs() {
   return (
-    <div className="pt-[64px] bg-[#f6ede3] text-black min-h-screen">
+    <div className="pt-[64px] bg-[#ede3d7]  min-h-screen">
       {/* Hero Image */}
       <img
         src="/images/contact-hero.png" // replace with your actual image path
@@ -82,7 +82,7 @@ export default function ContactUs() {
             className="flex-1 bg-transparent border-b border-black focus:outline-none py-2 text-[#3b3b3b]/50"
             defaultValue=""
           >
-            <option value="" disabled>No. of Days*</option>
+            <option value="" disabled className="text-[#3b3b3b]/50">No. of Days*</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
