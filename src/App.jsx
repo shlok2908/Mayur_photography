@@ -9,11 +9,13 @@ import Photography from "./pages/Photography";
 import AlbumDetails from "./pages/AlbumDetails";
 import Films from "./pages/Films";
 import FilmAlbum from "./pages/FilmAlbum";
-import Testimonials from "./pages/Testimonials";
+import Blog from "./pages/Blog";
 import Editorials from "./pages/Editorials";
 import ContactUs from "./pages/ContactUs";
-import JoinUs from "./pages/JoinUs";
+import FAQ from "./pages/faq";
 import Stories from "./pages/Stories";
+import 'react-phone-input-2/lib/style.css';
+
 
 export default function App() {
   const location = useLocation();
@@ -35,10 +37,10 @@ export default function App() {
           <Route path="/photography/:slug" element={<AlbumDetails />} />
           <Route path="/films" element={<Films />} />
           <Route path="/films/:album" element={<FilmAlbum />} />
-          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/editorials" element={<Editorials />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/join-us" element={<JoinUs />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/stories" element={<Stories />} />
         </Routes>
         <Footer />
