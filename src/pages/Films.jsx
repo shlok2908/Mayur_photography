@@ -1,39 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const films = [
-  {
-    slug: "yashvi-karan-boho-night",
-    title: "Yashvi Karan Boho Night",
-    location: "Surat",
-    description:
-      "As the sun sets and the stars begin to twinkle, tonight we gather in the spirit of freedom and creativity. With Yashvi Karan leading the way, we embrace the magic of the night.",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "https://dummyimage.com/600x400/000/fff&text=Yashvi+Karan+Boho",
-  },
-  {
-    slug: "yashvi-karan-wedding-teaser",
-    title: "Yashvi Karan Wedding Teaser",
-    location: "Surat",
-    description:
-      "Enveloped in petals of commitment, the varmala ceremony is a joyous expression of love—a magnificent beginning to a shared journey of dreams and laughter.",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "https://dummyimage.com/600x400/000/fff&text=Wedding+Teaser",
-  },
-  {
-    slug: "riki-sabrina",
-    title: "Riki Sabrina",
-    location: "Bali",
-    description:
-      "Riki and Sabrina's Bali prewedding video teaser is a breathtaking glimpse into their love story. Set against the backdrop of a stunning beachside, the golden sands and blue waves embrace their romance.",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    thumbnail: "https://dummyimage.com/600x400/000/fff&text=Riki+Sabrina",
-  },
-];
+import films from "../data/filmsData.json"; // import from JSON
 
 export default function Films() {
   return (
-    <main className="min-h-screen bg-[#ede3d7]  pt-[64px] px-4">
+    <main className="min-h-screen bg-[#ede3d7] pt-[64px] px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <h2 className="text-center text-3xl md:text-5xl font-display mb-12">
@@ -46,12 +17,24 @@ export default function Films() {
             <div key={index} className="flex flex-col">
               {/* Video */}
               <div className="w-full aspect-video overflow-hidden shadow-lg mb-4">
-                <video
-                  src={film.video}
-                  controls
-                  poster={film.thumbnail}
-                  className="w-full h-full object-cover"
-                />
+                {film.videoType === "youtube" ? (
+                  <iframe
+                    src={film.video}
+                    title={film.title}
+                    frameBorder="0"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                ) : (
+                  <video
+                    src={film.video}
+                    controls
+                    poster={film.thumbnail}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
 
               {/* Text Content */}
@@ -60,7 +43,7 @@ export default function Films() {
                 <span className="text-sm italic">{film.location}</span>
               </div>
 
-              {/* Description with line clamp */}
+              {/* Description */}
               <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4 line-clamp-3">
                 {film.description}
               </p>
