@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 
 // Load all album images
 const allAlbumImages = import.meta.glob(
@@ -7,13 +7,13 @@ const allAlbumImages = import.meta.glob(
   { eager: true, query: "?url", import: "default" }
 );
 
-// Load all cover images
+// Load all cover images (still used to preload data but not displayed)
 const allCovers = import.meta.glob(
   "/src/assets/albums/*/cover.{jpg,jpeg,png,webp}",
   { eager: true, query: "?url", import: "default" }
 );
 
-// Group by album
+// Organize albums
 const albumData = {};
 
 for (const path in allAlbumImages) {
@@ -37,35 +37,10 @@ for (const path in allAlbumImages) {
 function AlbumDetails() {
   const { slug } = useParams();
   const album = albumData[slug];
-  const coverRef = useRef(null);
-  const [offsetY, setOffsetY] = useState(0);
 
-  // Smooth parallax effect on scroll
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!coverRef.current) return;
-      const scrollY = window.scrollY;
-      const limit = coverRef.current.offsetHeight;
-
-      if (!ticking && scrollY <= limit) {
-        window.requestAnimationFrame(() => {
-          setOffsetY(scrollY / 2);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [slug]);
-
-  // Scroll reset when album changes
+  // Scroll reset on album change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-    setOffsetY(0);
   }, [slug]);
 
   if (!album) {
@@ -77,34 +52,22 @@ function AlbumDetails() {
   }
 
   return (
-    <div className="pt-[64px] font-bodoni min-h-screen bg-[#ede3d7] text-[#111]">
-      
-      {/* Cover Section with Parallax */}
-      {album.cover && (
-        <div ref={coverRef} className="relative w-full overflow-hidden h-[80vh]">
-          <img
-            src={album.cover}
-            alt="Cover"
-            className="w-full h-full object-cover opacity-80 transition-transform duration-75 ease-out"
-            style={{ transform: `translateY(${offsetY}px)` }}
-          />
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <h1 className="text-white text-3xl md:text-5xl font-semibold text-center">
-              {album.title}
-            </h1>
-          </div>
-        </div>
-      )}
+    <div className="pt-[64px] font-bodoni min-h-screen bg-[#ede3d7] ">
 
-      {/* Photo Grid */}
+      {/* Album Title Only */}
+      <div className="w-full py-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-semibold">{album.title}</h1>
+      </div>
+
+      {/* Photo Masonry Grid */}
       <div className="px-4 py-12 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {album.images.map((img, idx) => (
             <img
               key={idx}
               src={img}
               alt={`${album.title} ${idx + 1}`}
-              className="w-full object-cover rounded shadow-md transition-transform duration-300 hover:scale-105"
+              className="w-full mb-4  break-inside-avoid duration-300"
               loading="lazy"
             />
           ))}

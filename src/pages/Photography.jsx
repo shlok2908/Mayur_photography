@@ -6,46 +6,56 @@ const coverImages = import.meta.glob(
   { eager: true, query: "?url", import: "default" }
 );
 
-const albums = Object.entries(coverImages)
-  .map(([path, url]) => {
-    const parts = path.split("/");
-    const slug = parts[parts.length - 2]; // folder name = slug
+const albums = Object.entries(coverImages).map(([path, url]) => {
+  const parts = path.split("/");
+  const slug = parts[parts.length - 2]; // folder name = slug
 
-    return {
-      slug,
-      title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()), // Folder name formatted
-      cover: url,
-    };
-  });
+  return {
+    slug,
+    title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    cover: url,
+    location: "Surat", // 👉 You can make this dynamic too
+    description:
+      "This wedding was a dazzling celebration, filled with vibrant glamour and special moments.",
+  };
+});
 
 export default function Photography() {
   return (
-    <div className="font-bodoni min-h-screen bg-[#ede3d7]  text-[#111]">
-     <div className="mt-16 px-4 pt-10 lg:pt-8 pb-4 max-w-6xl mx-auto">
-        
-        {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="bg-[#ede3d7] font-bodoni">
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {albums.map((album) => (
             <Link
               key={album.slug}
               to={`/photography/${album.slug}`}
-              className="relative block group overflow-hidden"
+              className="group block"
             >
-              {/* Album Cover */}
-              <div className="aspect-[4/3] w-full overflow-hidden">
+              {/* Image */}
+              <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src={album.cover}
                   alt={album.title}
-                  className="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
 
-              {/* Hover Overlay with Title */}
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                <h2 className="text-white text-lg font-semibold tracking-wide text-center px-2">
-                  {album.title}
-                </h2>
+              {/* Title + Location */}
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold leading-snug">
+                  {album.title}{" "}
+                  <span className="text-sm font-normal text-gray-600">
+                    {album.location}
+                  </span>
+                </h3>
+                <p className="text-sm text-[#111]/80 mt-2 line-clamp-3">
+                  {album.description}
+                </p>
+
+                <div className="mt-4 font-semibold text-sm group-hover:underline inline-flex items-center gap-1">
+                  READ MORE <span className="text-lg">→</span>
+                </div>
               </div>
             </Link>
           ))}
