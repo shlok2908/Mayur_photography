@@ -70,7 +70,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="bg-[#ede3d7] pt-[64px] min-h-screen">
+    <div className="bg-[#ede3d7] min-h-screen content-below-navbar">
       {/* Toast Container */}
       <ToastContainer />
 

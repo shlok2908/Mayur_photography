@@ -17,7 +17,6 @@ const dummyReels = [
   'https://images.unsplash.com/photo-1519125323398-675f0ddb6308',
   'https://images.unsplash.com/photo-1465101046530-73398c7f28ca',
   'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
-  'https://images.unsplash.com/photo-1465101178521-c3a6088bfa3d',
   'https://images.unsplash.com/photo-1465101046530-73398c7f28ca',
 ];
 
@@ -25,9 +24,9 @@ const dummyReels = [
 
 export default function Home() {
   return (
-    <main className="bg-[#ede3d7] min-h-screen pb-0">
+    <main className="bg-[#ede3d7] min-h-screen pb-0 content-below-navbar">
       {/* Hero Video Section */}
-      <section className="w-full flex justify-center items-center pt-[64px] pb-8">
+      <section className="w-full flex justify-center items-center pb-8">
         <video
           className="w-full h-[60vh]  object-cover"
           src="https://www.w3schools.com/html/mov_bbb.mp4"

@@ -27,9 +27,9 @@ export default function Editorials() {
   const slides = editorialImages.map((src) => ({ src: `${src}?auto=format&fit=max&q=95` }));
 
   return (
-    <div className="bg-[#ede3d7] min-h-screen pt-[64px] px-4">
+    <div className="bg-[#ede3d7] min-h-screen px-4 content-below-navbar">
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto mb-12 mt-10">
+      <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl md:text-5xl font-display mb-4">
           Capturing the Madness and Chaos, we call Weddings
         </h2>

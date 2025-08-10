@@ -10,6 +10,7 @@ import AlbumDetails from "./pages/AlbumDetails";
 import Films from "./pages/Films";
 import FilmAlbum from "./pages/FilmAlbum";
 import Blog from "./pages/Blog";
+import BlogDetails from "./pages/BlogDetails";
 import Editorials from "./pages/Editorials";
 import ContactUs from "./pages/ContactUs";
 import FAQ from "./pages/faq";
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/films" element={<Films />} />
           <Route path="/films/:album" element={<FilmAlbum />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/editorials" element={<Editorials />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/faq" element={<FAQ />} />

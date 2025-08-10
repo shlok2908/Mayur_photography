@@ -17,7 +17,7 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="Mayur Logo"
-            className="h-10 w-auto object-contain"
+            className="h-11 w-auto object-contain"
           />
         </Link>
 

@@ -8,7 +8,7 @@ export default function FilmAlbum() {
 
   if (!film) {
     return (
-      <main className="pt-[64px] min-h-screen flex flex-col items-center justify-center">
+      <main className="min-h-screen flex flex-col items-center justify-center content-below-navbar">
         <h1 className="text-2xl font-display mb-4">Film not found</h1>
         <Link to="/films" className="text-blue-600 underline">
           Back to Films
@@ -20,7 +20,7 @@ export default function FilmAlbum() {
   const suggestions = films.filter((f) => f.slug !== album);
 
   return (
-    <main className="min-h-screen bg-[#ede3d7] pt-[64px] px-4">
+    <main className="min-h-screen bg-[#ede3d7] px-4 content-below-navbar">
       <div className="max-w-5xl mx-auto">
         {/* Main Video */}
         <div className="w-full aspect-video overflow-hidden rounded-xl shadow-lg mb-8">

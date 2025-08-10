@@ -37,7 +37,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="bg-[#ede3d7]  min-h-screen pt-[90px] py-12 sm:py-20 px-4 sm:px-8 lg:px-20 font-serif ">
+    <div className="bg-[#ede3d7] min-h-screen py-12 sm:py-20 px-4 sm:px-8 lg:px-20 font-serif content-below-navbar">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <h1 className="text-2xl sm:text-4xl md:text-5xl font-normal text-center mb-4 sm:mb-8 leading-snug">

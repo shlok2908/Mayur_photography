@@ -13,6 +13,12 @@ const allCovers = import.meta.glob(
   { eager: true, query: "?url", import: "default" }
 );
 
+// Load all description files from albums folder
+const descFiles = import.meta.glob(
+  "../assets/albums/*/desc.txt",
+  { eager: true, query: "?raw", import: "default" }
+);
+
 // Organize albums
 const albumData = {};
 
@@ -22,10 +28,15 @@ for (const path in allAlbumImages) {
   const image = allAlbumImages[path];
 
   if (!albumData[slug]) {
+    // Get description from desc.txt file
+    const descPath = `../assets/albums/${slug}/desc.txt`;
+    const description = descFiles[descPath] || "";
+    
     albumData[slug] = {
       title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       images: [],
       cover: allCovers[`/src/assets/albums/${slug}/cover.webp`] || null,
+      description: description.trim(),
     };
   }
 
@@ -52,11 +63,16 @@ function AlbumDetails() {
   }
 
   return (
-    <div className="pt-[64px] font-bodoni min-h-screen bg-[#ede3d7] ">
+    <div className="font-bodoni min-h-screen bg-[#ede3d7] content-below-navbar">
 
-      {/* Album Title Only */}
+      {/* Album Title and Description */}
       <div className="w-full py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-semibold">{album.title}</h1>
+        <h1 className="text-4xl md:text-5xl font-semibold mb-6">{album.title}</h1>
+        {album.description && (
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto px-4 leading-relaxed">
+            {album.description}
+          </p>
+        )}
       </div>
 
       {/* Photo Masonry Grid */}

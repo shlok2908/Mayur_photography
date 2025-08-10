@@ -6,24 +6,33 @@ const coverImages = import.meta.glob(
   { eager: true, query: "?url", import: "default" }
 );
 
+// 📦 Load all description files from albums folder
+const descFiles = import.meta.glob(
+  "../assets/albums/*/desc.txt",
+  { eager: true, query: "?raw", import: "default" }
+);
+
 const albums = Object.entries(coverImages).map(([path, url]) => {
   const parts = path.split("/");
   const slug = parts[parts.length - 2]; // folder name = slug
+  
+  // Get description from desc.txt file
+  const descPath = `../assets/albums/${slug}/desc.txt`;
+  const description = descFiles[descPath] || "";
 
   return {
     slug,
     title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
     cover: url,
     location: "Surat", // 👉 You can make this dynamic too
-    description:
-      "This wedding was a dazzling celebration, filled with vibrant glamour and special moments.",
+    description: description.trim(),
   };
 });
 
 export default function Photography() {
   return (
-    <div className="bg-[#ede3d7] font-bodoni">
-      <div className="max-w-7xl mx-auto px-4 pt-24 pb-12">
+    <div className="bg-[#ede3d7] font-bodoni content-below-navbar">
+      <div className="max-w-7xl mx-auto px-4 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {albums.map((album) => (
             <Link
@@ -49,9 +58,11 @@ export default function Photography() {
                     {album.location}
                   </span>
                 </h3>
-                <p className="text-sm text-[#111]/80 mt-2 line-clamp-3">
-                  {album.description}
-                </p>
+                {album.description && (
+                  <p className="text-sm text-[#111]/80 mt-2 line-clamp-3">
+                    {album.description}
+                  </p>
+                )}
 
                 <div className="mt-4 font-semibold text-sm group-hover:underline inline-flex items-center gap-1">
                   READ MORE <span className="text-lg">→</span>
