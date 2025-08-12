@@ -1,33 +1,33 @@
 .loader-screen {
   position: fixed;
   inset: 0;
-  background-color: #5C6443; /* Solid background */
+  background-color: #5C6443;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* On top of everything */
+  z-index: 9999;
 }
 
-.logo-base {
-  background-color: grey; /* Static logo color */
-  width: 300px;
-  height: 300px;
+.logo-base,
+.fill-rect {
+  background-color: grey; /* static for .logo-base, will override for .fill-rect */
+  width: min(50vw, 300px);  /* 50% of viewport width, max 300px */
+  height: auto;
+  aspect-ratio: 1 / 1; /* keep square */
+  max-height: min(50vh, 300px);
   position: absolute;
 }
 
 .fill-rect {
-  background-color: #ede3d7; /* Fill color */
-  width: 300px;
-  height: 300px;
-  position: absolute;
+  background-color: #ede3d7;
   animation: fill-up 5s ease-in-out forwards;
 }
 
 @keyframes fill-up {
   from {
-    clip-path: inset(100% 0 0 0); /* Fully hidden */
+    clip-path: inset(100% 0 0 0);
   }
   to {
-    clip-path: inset(0 0 0 0); /* Fully visible */
+    clip-path: inset(0 0 0 0);
   }
 }
