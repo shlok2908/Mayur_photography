@@ -35,10 +35,10 @@ export default function ContactUs() {
 
     emailjs
       .send(
-        "service_8c3chmk",
-        "template_5rtbs5j",
+        "service_ow3kmai",
+        "template_q53ddfg",
         templateParams,
-        "aQH9-3UySbdfw4N0M"
+        "6knvHKfXlHZfBtblS"
       )
       .then(() => {
         toast.success("Enquiry sent successfully!", {
