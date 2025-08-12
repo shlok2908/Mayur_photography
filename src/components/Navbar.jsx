@@ -44,7 +44,7 @@ export default function Navbar() {
           </a>
           <Link
             to="/contact-us"
-            className="bg-[#b89b59] text-white font-semibold px-4 py-2 rounded-md hover:opacity-90 transition"
+            className="bg-[#b89b59] font-semibold px-4 py-2 rounded-md hover:opacity-90 transition"
           >
             Get In Touch
           </Link>

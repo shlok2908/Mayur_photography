@@ -77,7 +77,7 @@ export default function Home() {
         {/* Button */}
         <Link
           to="/photography"
-          className="mt-8 inline-block px-8 py-3 bg-[#b49c64] text-white rounded-xl font-display text-lg tracking-wide hover:opacity-90 transition"
+          className="mt-8 inline-block px-8 py-3 bg-[#b49c64] rounded-xl font-display text-lg tracking-wide hover:opacity-90 transition"
         >
           SEE MORE
         </Link>

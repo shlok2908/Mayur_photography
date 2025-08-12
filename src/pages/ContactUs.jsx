@@ -183,7 +183,7 @@ export default function ContactUs() {
           <div className="pt-4 flex justify-center">
             <button
               type="submit"
-              className="bg-[#b49c64] text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition"
+              className="bg-[#b49c64]  px-6 py-2 rounded-lg font-medium hover:opacity-90 transition"
             >
               Submit
             </button>
