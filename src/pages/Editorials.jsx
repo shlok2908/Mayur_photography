@@ -30,12 +30,11 @@ export default function Editorials() {
     <div className="bg-[#ede3d7] min-h-screen px-4 content-below-navbar">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl md:text-5xl font-display mb-4">
-          Capturing the Madness and Chaos, we call Weddings
-        </h2>
+        <h1 className="font-display mb-12 text-4xl">
+          Editorials that blend innovation with artistry.
+        </h1>
         <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-          Here, we present a meticulously curated collection of weddings from recent years 
-          showcasing the authentic union of two souls in the most genuine and heartfelt manner imaginable.
+          Our editorial work blends high-fashion elegance with heartfelt storytelling. Each project is a celebration of style, vision, and the moments that make it uniquely yours.
         </p>
       </div>
 

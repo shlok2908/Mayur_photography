@@ -1,84 +1,74 @@
-// src/components/Reels.js
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import React, { useState, useEffect } from "react";
 
-const dummyReels = [
-  "https://www.instagram.com/reel/DM2mC22IJkU/",
-  "https://www.instagram.com/reel/DMfQzHYS95-/",
-  "https://www.instagram.com/reel/DCbMcRBoT-Y/",
-  "https://www.instagram.com/reel/DDKEZT0onnd/",
-];
+// Dynamically import all MP4 files from assets/reels
+const reelVideos = import.meta.glob("../assets/reels/*.mp4", { eager: true });
 
 export default function Reels() {
+  const videos = Object.values(reelVideos).map((video) => video.default);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide every 7 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % videos.length);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [videos.length]);
+
   return (
-    <section className="py-16 bg-[#ede3d7] text-center">
-      <h2 className="text-3xl md:text-4xl font-display mb-2">
+    <div className="w-full text-center py-6">
+      <h2 className="text-4xl font-bold mb-6">
         INSTAGRAM <span className="italic font-serif">reels</span>
       </h2>
       <p className="mb-8 text-2xl font-light">"A glimpse into forever."</p>
 
-      {/* Desktop View */}
-      <div className="hidden md:flex gap-6 px-4 md:px-16 pb-4 justify-center items-stretch">
-        {dummyReels.map((link, i) => {
-          const cleanLink = link.split("?")[0];
-          const embedUrl = cleanLink.endsWith("/")
-            ? cleanLink + "embed"
-            : cleanLink + "/embed";
+      {/* Mobile Carousel */}
+      <div className="md:hidden relative w-full px-4"> {/* px-4 adds side space */}
+        <div className="max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg">
+          <video
+            key={currentIndex}
+            src={videos[currentIndex]}
+            controls
+            loop
+            muted
+            playsInline
+            className="w-full aspect-[9/16] object-cover"
+          />
+        </div>
 
-          return (
-            <div
-              key={i}
-              className="relative min-w-[220px] max-w-[260px] aspect-[9/16] rounded-xl overflow-hidden shadow"
-            >
-              <iframe
-                src={embedUrl}
-                className="w-full h-full"
-                frameBorder="0"
-                scrolling="no"
-                allow="encrypted-media; fullscreen; picture-in-picture"
-              ></iframe>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Mobile Swiper */}
-      <div className="block md:hidden w-full max-w-xs mx-auto relative">
-        <Swiper
-          modules={[Pagination, Navigation, Autoplay]}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          navigation
-          style={{ paddingBottom: 40 }}
+        {/* Navigation Buttons */}
+        <button
+          onClick={() =>
+            setCurrentIndex(
+              (prev) => (prev - 1 + videos.length) % videos.length
+            )
+          }
+          className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-1 rounded-full"
         >
-          {dummyReels.map((link, i) => {
-            const cleanLink = link.split("?")[0];
-            const embedUrl = cleanLink.endsWith("/")
-              ? cleanLink + "embed"
-              : cleanLink + "/embed";
-
-            return (
-              <SwiperSlide key={i}>
-                <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden shadow">
-                  <iframe
-                    src={embedUrl}
-                    className="w-full h-full"
-                    frameBorder="0"
-                    scrolling="no"
-                    allow="encrypted-media; fullscreen; picture-in-picture"
-                  ></iframe>
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+          ‹
+        </button>
+        <button
+          onClick={() => setCurrentIndex((prev) => (prev + 1) % videos.length)}
+          className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-1 rounded-full"
+        >
+          ›
+        </button>
       </div>
-    </section>
+
+      {/* Desktop Grid */}
+      <div className="hidden md:grid gap-6 max-w-5xl mx-auto md:grid-cols-2 lg:grid-cols-4">
+        {videos.map((video, index) => (
+          <video
+            key={index}
+            src={video}
+            controls
+            loop
+            muted
+            playsInline
+            className="w-full aspect-[9/16] rounded-lg shadow-lg object-cover"
+          />
+        ))}
+      </div>
+    </div>
   );
 }

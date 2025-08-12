@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-50 top-0 left-0 px-6 py-4 bg-[#ede3d7]  text-black">
+    <nav className="fixed w-full z-50 top-0 left-0 px-6 py-4 bg-[#ede3d7] ">
       <div className="relative flex items-center justify-between w-full">
         {/* Left: Logo */}
         <Link
