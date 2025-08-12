@@ -34,7 +34,7 @@ export default function Editorials() {
           Editorials that blend innovation with artistry.
         </h1>
         <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-          Our editorial work blends high-fashion elegance with heartfelt storytelling. Each project is a celebration of style, vision, and the moments that make it uniquely yours.
+          Our editorial work blends high-fashion elegance with heartfelt storytelling.<br />Each project is a celebration of style, vision, and the moments that make it uniquely yours.
         </p>
       </div>
 

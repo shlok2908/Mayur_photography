@@ -39,19 +39,19 @@ export default function Loader() {
               className="fill-rect"
               width="1024"
               height="1024"
-              fill="white"
+              fill="#ede3d7"
             />
           </mask>
 
           <g mask="url(#reveal-mask)">
             <path d="M100 900V100L512 800L924 100V900"
-                  fill="none" stroke="#fff" strokeWidth="50" strokeLinecap="round" />
+                  fill="none" stroke="#ede3d7" strokeWidth="50" strokeLinecap="round" />
             <path d="M220 900V600"
-                  fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" />
+                  fill="none" stroke="#ede3d7" strokeWidth="30" strokeLinecap="round" />
             <path d="M804 900V600"
-                  fill="none" stroke="#fff" strokeWidth="30" strokeLinecap="round" />
+                  fill="none" stroke="#ede3d7" strokeWidth="30" strokeLinecap="round" />
             <path d="M280 120L512 520L744 120"
-                  fill="none" stroke="#fff" strokeWidth="40" strokeLinecap="round" />
+                  fill="none" stroke="#ede3d7" strokeWidth="40" strokeLinecap="round" />
           </g>
         </svg>
       </div>

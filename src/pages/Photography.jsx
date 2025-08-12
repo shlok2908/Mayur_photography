@@ -54,9 +54,6 @@ export default function Photography() {
               <div className="mt-4">
                 <h3 className="text-xl font-semibold leading-snug">
                   {album.title}{" "}
-                  <span className="text-sm font-normal text-gray-600">
-                    {album.location}
-                  </span>
                 </h3>
                 {album.description && (
                   <p className="text-sm text-[#111]/80 mt-2 line-clamp-3">
