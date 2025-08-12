@@ -10,9 +10,8 @@ export default function Footer() {
           className="h-16 w-auto mb-4"
         />
 
-        
         {/* Contact Info */}
-        <div className="text-lg md:text-xl space-y-2 ">
+        <div className="text-lg md:text-xl space-y-2">
           <p>CONTACT: +91 85112 90999</p>
           <p>Email - teammayurmakwana@gmail.com</p>
         </div>
@@ -20,10 +19,18 @@ export default function Footer() {
 
       {/* Bottom Full-width Image */}
       <div className="w-full">
+        {/* Mobile Image */}
         <img
-          src="/your-image-path.png" // Replace with actual path or import
-          alt="Footer Background"
-          className="w-full h-auto object-cover"
+          src="/footer.webp"
+          alt="Footer Background Mobile"
+          className="block md:hidden w-full h-auto"
+        />
+
+        {/* Desktop Image */}
+        <img
+          src="/footer-desktop.jpg"
+          alt="Footer Background Desktop"
+          className="hidden md:block w-full h-auto"
         />
       </div>
     </footer>

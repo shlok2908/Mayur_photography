@@ -8,9 +8,7 @@ export default function Loader() {
   useEffect(() => {
     const node = fillRef.current;
     if (node) {
-      const handleAnimationEnd = () => {
-        setIsLoading(false); // hide only when animation ends
-      };
+      const handleAnimationEnd = () => setIsLoading(false);
       node.addEventListener("animationend", handleAnimationEnd);
       return () => node.removeEventListener("animationend", handleAnimationEnd);
     }
@@ -20,41 +18,35 @@ export default function Loader() {
 
   return (
     <div className="loader-screen">
-      <div className="logo-mask">
-        <svg viewBox="0 0 1024 1024" className="logo-svg">
-          {/* Gray Logo */}
-          <path d="M100 900V100L512 800L924 100V900"
-                fill="none" stroke="#888" strokeWidth="50" strokeLinecap="round" />
-          <path d="M220 900V600"
-                fill="none" stroke="#888" strokeWidth="30" strokeLinecap="round" />
-          <path d="M804 900V600"
-                fill="none" stroke="#888" strokeWidth="30" strokeLinecap="round" />
-          <path d="M280 120L512 520L744 120"
-                fill="none" stroke="#888" strokeWidth="40" strokeLinecap="round" />
-
-          {/* Mask with animated rectangle */}
-          <mask id="reveal-mask">
-            <rect
-              ref={fillRef}
-              className="fill-rect"
-              width="1024"
-              height="1024"
-              fill="#ede3d7"
-            />
-          </mask>
-
-          <g mask="url(#reveal-mask)">
-            <path d="M100 900V100L512 800L924 100V900"
-                  fill="none" stroke="#ede3d7" strokeWidth="50" strokeLinecap="round" />
-            <path d="M220 900V600"
-                  fill="none" stroke="#ede3d7" strokeWidth="30" strokeLinecap="round" />
-            <path d="M804 900V600"
-                  fill="none" stroke="#ede3d7" strokeWidth="30" strokeLinecap="round" />
-            <path d="M280 120L512 520L744 120"
-                  fill="none" stroke="#ede3d7" strokeWidth="40" strokeLinecap="round" />
-          </g>
-        </svg>
-      </div>
+      {/* Grey static logo */}
+      <div
+        className="logo-base"
+        style={{
+          WebkitMaskImage: `url(/logo.png)`,
+          maskImage: `url(/logo.png)`,
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+        }}
+      />
+      {/* Beige animated fill */}
+      <div
+        className="fill-rect"
+        ref={fillRef}
+        style={{
+          WebkitMaskImage: `url(/logo.png)`,
+          maskImage: `url(/logo.png)`,
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+        }}
+      />
     </div>
   );
 }

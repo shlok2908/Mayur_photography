@@ -22,7 +22,7 @@ export default function Navbar() {
         </Link>
 
         {/* Center: Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-sm uppercase font-light absolute left-1/2 -translate-x-1/2">
+        <ul className="hidden md:flex gap-8 text-lg uppercase font-light absolute left-1/2 -translate-x-1/2">
           <li><Link className="nav-link" to="/photography">Photography</Link></li>
           <li><Link className="nav-link" to="/films">Films</Link></li>
           <li><Link className="nav-link" to="/editorials">Editorial</Link></li>
@@ -44,7 +44,7 @@ export default function Navbar() {
           </a>
           <Link
             to="/contact-us"
-            className="bg-[#b89b59] font-semibold px-4 py-2 rounded-md hover:opacity-90 transition"
+            className="bg-[#5C6443] text-[#ede3d7] font-semibold px-4 py-2 rounded-md  transition"
           >
             Get In Touch
           </Link>
@@ -87,7 +87,7 @@ export default function Navbar() {
         <Link
           to="/contact-us"
           onClick={() => setIsOpen(false)}
-          className="mt-2 bg-[#b49c64] text-white  px-6 py-2 rounded-md hover:opacity-90 transition"
+          className="mt-2 bg-[#5C6443] text-[#ede3d7] px-6 py-2 rounded-md hover:opacity-90 transition"
         >
           Get In Touch
         </Link>

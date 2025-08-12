@@ -1,38 +1,33 @@
 .loader-screen {
-  background: #5C6443 ; /* changed from black */
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
   position: fixed;
   inset: 0;
+  background-color: #5C6443; /* Solid background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* On top of everything */
 }
 
-.logo-mask {
-  width: 220px;
-  height: 220px;
+.logo-base {
+  background-color: grey; /* Static logo color */
+  width: 300px;
+  height: 300px;
+  position: absolute;
 }
 
-.logo-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Animate using translateY instead of y */
 .fill-rect {
-  fill: #ede3d7;
-  transform: translateY(100%);
-  animation: fillUp 5s ease-in-out forwards;
+  background-color: #ede3d7; /* Fill color */
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  animation: fill-up 5s ease-in-out forwards;
 }
 
-
-@keyframes fillUp {
+@keyframes fill-up {
   from {
-    transform: translateY(100%);
+    clip-path: inset(100% 0 0 0); /* Fully hidden */
   }
   to {
-    transform: translateY(0%);
+    clip-path: inset(0 0 0 0); /* Fully visible */
   }
 }

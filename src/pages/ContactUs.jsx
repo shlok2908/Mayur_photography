@@ -82,7 +82,7 @@ export default function ContactUs() {
       />
 
       {/* Intro Text */}
-      <div className="max-w-4xl mx-auto px-4 py-12 text-center text-sm md:text-base font-light space-y-6">
+      <div className="max-w-4xl mx-auto px-4 py-12 text-center text-sm md:text-base  space-y-6">
         <p>
           Mayur Makwana Photography & Team is a Gujarat-based wedding
           photography and cinematography studio, founded by Mayur
@@ -183,7 +183,7 @@ export default function ContactUs() {
           <div className="pt-4 flex justify-center">
             <button
               type="submit"
-              className="bg-[#b49c64]  px-6 py-2 rounded-lg font-medium hover:opacity-90 transition"
+              className=" bg-[#5C6443] text-[#ede3d7]  px-6 py-2 rounded-lg  hover:opacity-90 transition"
             >
               Submit
             </button>
