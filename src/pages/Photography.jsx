@@ -24,7 +24,6 @@ const albums = Object.entries(coverImages).map(([path, url]) => {
     slug,
     title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
     cover: url,
-    location: "Surat", // 👉 You can make this dynamic too
     description: description.trim(),
   };
 });

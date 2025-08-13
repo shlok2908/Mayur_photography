@@ -77,7 +77,7 @@ function AlbumDetails() {
 
       {/* Photo Masonry Grid */}
       <div className="px-4 py-12 max-w-6xl mx-auto">
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="columns-2 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {album.images.map((img, idx) => (
             <img
               key={idx}

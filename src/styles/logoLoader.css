@@ -8,13 +8,27 @@
   z-index: 9999;
 }
 
+/* Existing styles stay as they are */
+
+/* Main loader styles ... */
+
+/* Mobile override — must be after the main styles */
+@media (max-width: 640px) {
+  .logo-base,
+  .fill-rect {
+    width: 150px !important;
+    height: 150px !important;
+    max-height: 150px !important;
+  }
+}
+
 .logo-base,
 .fill-rect {
-  background-color: grey; /* static for .logo-base, will override for .fill-rect */
-  width: min(50vw, 300px);  /* 50% of viewport width, max 300px */
+  background-color: grey;
+  width: min(40vw, 200px);  /* 50% of viewport width, max 300px */
   height: auto;
   aspect-ratio: 1 / 1; /* keep square */
-  max-height: min(50vh, 300px);
+  max-height: min(50vh, 200px);
   position: absolute;
 }
 
@@ -22,6 +36,7 @@
   background-color: #ede3d7;
   animation: fill-up 5s ease-in-out forwards;
 }
+
 
 @keyframes fill-up {
   from {
