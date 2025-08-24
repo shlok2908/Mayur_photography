@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import SEO from "./components/SEO";
 import Home from "./pages/Home";
 import Photography from "./pages/Photography";
 import AlbumDetails from "./pages/AlbumDetails";
@@ -29,6 +30,7 @@ export default function App() {
 
   return (
     <>
+      <SEO />
       {loading && <Loader />}
       <div className={`${loading ? "overflow-hidden h-screen pointer-events-none" : ""}`}>
         <Navbar />

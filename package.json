@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analyze": "vite build --mode analyze",
+    "seo-check": "npm run build && npx lighthouse http://localhost:4173 --output=html --output-path=./lighthouse-report.html"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

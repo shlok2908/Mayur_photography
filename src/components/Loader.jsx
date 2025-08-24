@@ -18,6 +18,14 @@ export default function Loader() {
 
   return (
     <div className="loader-screen">
+      {/* SEO-friendly content for search engines */}
+      <div style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}>
+        <h1>Mayur Photography - Professional Wedding & Portrait Photography Services</h1>
+        <p>Professional wedding photography, portrait sessions, and editorial photography by Mayur. Capturing life's precious moments with artistic excellence and attention to detail.</p>
+        <p>Services include: Wedding Photography, Portrait Photography, Editorial Photography, Event Photography, Corporate Photography, Fashion Photography</p>
+        <p>Location: India | Contact: Professional Photography Services</p>
+      </div>
+      
       {/* Grey static logo */}
       <div
         className="logo-base"
@@ -31,6 +39,7 @@ export default function Loader() {
           WebkitMaskSize: "contain",
           maskSize: "contain",
         }}
+        aria-label="Mayur Photography Logo"
       />
       {/* Beige animated fill */}
       <div
@@ -46,6 +55,7 @@ export default function Loader() {
           WebkitMaskSize: "contain",
           maskSize: "contain",
         }}
+        aria-label="Mayur Photography Logo Animation"
       />
     </div>
   );

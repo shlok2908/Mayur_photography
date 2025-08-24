@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /$
+Allow: /index.html
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /favicon.ico
+Allow: /logo.png
+Allow: /header.png
+Allow: /apple-touch-icon.png
+Allow: /favicon-32x32.png
+Allow: /favicon-16x16.png
+Allow: /site.webmanifest
+
+# Block all other pages from being indexed
+Disallow: /photography
+Disallow: /films
+Disallow: /blog
+Disallow: /editorials
+Disallow: /contact-us
+Disallow: /faq
+Disallow: /src/
+Disallow: /assets/
+Disallow: /components/
+Disallow: /pages/
+Disallow: /styles/
+Disallow: /utils/
+
+# Block all dynamic routes
+Disallow: /*?
+
+# Sitemap location
+Sitemap: https://mayurphotography.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
