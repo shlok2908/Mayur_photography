@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Dynamically import all MP4 files from assets/reels
 const reelVideos = import.meta.glob("../assets/reels/*.mp4", { eager: true });
@@ -6,14 +6,6 @@ const reelVideos = import.meta.glob("../assets/reels/*.mp4", { eager: true });
 export default function Reels() {
   const videos = Object.values(reelVideos).map((video) => video.default);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Auto-slide every 7 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % videos.length);
-    }, 7000);
-    return () => clearInterval(interval);
-  }, [videos.length]);
 
   return (
     <div className="w-full text-center py-6">
@@ -23,16 +15,19 @@ export default function Reels() {
       <p className="mb-8 text-2xl font-light">"A glimpse into forever."</p>
 
       {/* Mobile Carousel */}
-      <div className="md:hidden relative w-full px-4"> {/* px-4 adds side space */}
+      <div className="md:hidden relative w-full px-4">
         <div className="max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg">
           <video
             key={currentIndex}
             src={videos[currentIndex]}
-            controls
-            loop
+            autoPlay
+            controls   // ✅ show controls
             muted
             playsInline
             className="w-full aspect-[9/16] object-cover"
+            onEnded={() =>
+              setCurrentIndex((prev) => (prev + 1) % videos.length) // ✅ go to next when finished
+            }
           />
         </div>
 
@@ -61,7 +56,8 @@ export default function Reels() {
           <video
             key={index}
             src={video}
-            controls
+            autoPlay
+            controls   // ✅ desktop also has controls
             loop
             muted
             playsInline
