@@ -63,7 +63,7 @@ export default function Home() {
     <main className="bg-[#ede3d7] min-h-screen pb-0 content-below-navbar">
 
 {/* ✅ Fullscreen Hero Slideshow */}
-<div className="w-screen h-[60vh] min-h-[400px] max-h-[70vh] overflow-hidden relative flex justify-center items-center">
+<div className="w-screen h-[40vh] sm:h-[60vh] min-h-[250px] sm:min-h-[400px] max-h-[50vh] sm:max-h-[70vh] overflow-hidden relative flex justify-center items-center">
   {heroImages.map((img, index) => (
     <img
       key={index}
