@@ -44,7 +44,7 @@ export default function Photography() {
                 <img
                   src={album.cover}
                   alt={album.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 "
                   loading="lazy"
                 />
               </div>
@@ -61,7 +61,7 @@ export default function Photography() {
                 )}
 
                 <div className="mt-4 font-semibold text-sm group-hover:underline inline-flex items-center gap-1">
-                  READ MORE <span className="text-lg">→</span>
+                  SEE MORE <span className="text-lg">→</span>
                 </div>
               </div>
             </Link>

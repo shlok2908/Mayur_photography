@@ -7,16 +7,10 @@ const allAlbumImages = import.meta.glob(
   { eager: true, query: "?url", import: "default" }
 );
 
-// Load all cover images (still used to preload data but not displayed)
+// Load all cover images (not displayed, but can be used if needed)
 const allCovers = import.meta.glob(
   "/src/assets/albums/*/cover.{jpg,jpeg,png,webp}",
   { eager: true, query: "?url", import: "default" }
-);
-
-// Load all description files from albums folder
-const descFiles = import.meta.glob(
-  "../assets/albums/*/desc.txt",
-  { eager: true, query: "?raw", import: "default" }
 );
 
 // Organize albums
@@ -28,15 +22,10 @@ for (const path in allAlbumImages) {
   const image = allAlbumImages[path];
 
   if (!albumData[slug]) {
-    // Get description from desc.txt file
-    const descPath = `../assets/albums/${slug}/desc.txt`;
-    const description = descFiles[descPath] || "";
-    
     albumData[slug] = {
       title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       images: [],
       cover: allCovers[`/src/assets/albums/${slug}/cover.webp`] || null,
-      description: description.trim(),
     };
   }
 
@@ -65,25 +54,20 @@ function AlbumDetails() {
   return (
     <div className="font-bodoni min-h-screen bg-[#ede3d7] content-below-navbar">
 
-      {/* Album Title and Description */}
-      <div className="w-full py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-semibold mb-6">{album.title}</h1>
-        {album.description && (
-          <p className="text-lg text-gray-700 max-w-4xl mx-auto px-4 leading-relaxed">
-            {album.description}
-          </p>
-        )}
+      {/* Album Title */}
+      <div className="w-full py-10 text-center">
+        <h1 className="text-4xl md:text-5xl font-semibold">{album.title}</h1>
       </div>
 
       {/* Photo Masonry Grid */}
-      <div className="px-4 py-12 max-w-6xl mx-auto">
+      <div className="px-4 pb-12 max-w-6xl mx-auto">
         <div className="columns-2 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {album.images.map((img, idx) => (
             <img
               key={idx}
               src={img}
               alt={`${album.title} ${idx + 1}`}
-              className="w-full mb-4  break-inside-avoid duration-300"
+              className="w-full mb-4 break-inside-avoid duration-300"
               loading="lazy"
             />
           ))}

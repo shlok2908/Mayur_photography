@@ -82,7 +82,7 @@ export default function ContactUs() {
       />
 
       {/* Intro Text */}
-      <div className="max-w-4xl mx-auto px-4 py-12 text-center text-sm md:text-base  space-y-6">
+      <div className="max-w-4xl mx-auto px-4 py-12 text-center text-3xl md:text-base  space-y-6">
         <p>
           Mayur Makwana Photography & Team is a Gujarat-based wedding
           photography and cinematography studio, founded by Mayur

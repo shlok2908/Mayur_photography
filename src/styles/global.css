@@ -16,7 +16,7 @@ html, body {
   height: 100%;
   background-color: #ede3d7; /* new background */
   color: #7b8669  !important;          /* apply to all text globally */
-  font-family: 'Inter', sans-serif;
+  font-family: 'serif' !important;
   overflow-x: hidden;
 }
 
@@ -24,6 +24,7 @@ html, body {
 h1, h2, h3, h4, h5, h6,
 p, span, li, input, textarea, select, label {
   color: inherit !important;
+  font: 'serif' !important;
 }
 
 

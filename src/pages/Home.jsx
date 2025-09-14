@@ -1,9 +1,9 @@
 // src/pages/Home.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Reels from "../components/reels";
 
-// Import all albums with cover image
+// ✅ Import all albums dynamically
 const albums = Object.entries(
   import.meta.glob("../assets/albums/*/cover.{jpg,jpeg,png,webp}", {
     eager: true,
@@ -14,19 +14,19 @@ const albums = Object.entries(
   const slug = path.split("/")[3]; // "../assets/album/<slug>/cover.jpg"
   return {
     slug,
-    name: slug.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()), // Default name formatting
+    name: slug.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
     cover,
   };
 });
 
-// Choose your featured albums + custom location
+// ✅ Featured albums data
 const featuredData = [
-  { slug: "wedding", location: "Dubai, UAE" },
-  { slug: "kit-shlok", location: "Jaipur, India" },
-  { slug: "riya-aarav", location: "Udaipur, India" },
+  { slug: "DIPPAN & DHIRAL", location: "Udaipur, India" },
+  { slug: "LIZA & KARAN", location: "Goa, India" },
+  { slug: "HARSH & TULSI", location: "Anand, India" },
 ];
 
-// Filter + order albums based on featuredData
+// ✅ Map featured albums with images
 const featuredAlbums = featuredData
   .map((item) => {
     const album = albums.find((a) => a.slug === item.slug);
@@ -38,54 +38,76 @@ const featuredAlbums = featuredData
   })
   .filter(Boolean);
 
+// ✅ Import hero images dynamically
+const heroImports = import.meta.glob("../assets/hero/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+const heroImages = Object.values(heroImports);
+
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto slide every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="bg-[#ede3d7] min-h-screen pb-0 content-below-navbar">
-      {/* Hero Video Section */}
-      <section className="w-full flex justify-center items-center pb-8">
-        <video
-          className="w-full h-[60vh] object-cover"
-          src="https://www.w3schools.com/html/mov_bbb.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+      {/* ✅ Hero Slideshow Section */}
+      <section className="w-full flex justify-center items-center pb-8 relative">
+        <div className="w-full h-screen overflow-hidden relative ">
+  {heroImages.map((img, index) => (
+    <img
+      key={index}
+      src={img}
+      alt={`Slide ${index}`}
+      className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ${
+        index === currentIndex ? "opacity-100" : "opacity-0"
+      }`}
+    />
+  ))}
+</div>
       </section>
 
-      {/* Gallery Grid Section */}
+      {/* ✅ Gallery Grid Section */}
       <section className="pb-16 text-center">
         <h1 className="font-display mb-12 text-3xl">
           "Every glance, every tear, every laugh — preserved forever in our
           frames."
         </h1>
 
-        
-      <div className="flex flex-wrap justify-center gap-6 px-4">
-        {featuredAlbums.map((item, i) => (
-          <Link
-            key={i}
-            to={`/photography/${item.slug}`} // ✅ matches your App.jsx route
-            className="group relative w-[300px] h-[400px] shadow-md overflow-hidden"
-          >
-            <img
-              src={item.cover}
-              alt={item.name}
-              className="object-cover w-full h-full"
-            />
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="bg-beige/80 w-[85%] h-[75%] flex flex-col items-center justify-center text-center shadow-md">
-                <h3 className="text-xl font-display tracking-wide leading-tight">
-                  {item.name}
-                </h3>
-                <p className="text-sm font-semibold text-neutral-800 mt-2">
-                  {item.location}
-                </p>
+        <div className="flex flex-wrap justify-center gap-6 px-4">
+          {featuredAlbums.map((item, i) => (
+            <Link
+              key={i}
+              to={`/photography/${item.slug}`}
+              className="group relative w-[300px] h-[400px] shadow-md overflow-hidden"
+            >
+              <img
+                src={item.cover}
+                alt={item.name}
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="bg-beige/80 w-[85%] h-[75%] flex flex-col items-center justify-center text-center shadow-md">
+                  <h3 className="text-xl font-display tracking-wide leading-tight">
+                    {item.name}
+                  </h3>
+                  <p className="text-sm font-semibold text-neutral-800 mt-2">
+                    {item.location}
+                  </p>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
+
         {/* Button */}
         <Link
           to="/photography"
@@ -95,7 +117,7 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Instagram Reels Section */}
+      {/* ✅ Instagram Reels Section */}
       <Reels />
     </main>
   );

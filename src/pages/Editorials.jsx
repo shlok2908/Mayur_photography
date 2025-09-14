@@ -3,15 +3,14 @@ import Masonry from "react-masonry-css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-const editorialImages = [
-  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308",
-  "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df",
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
-  "https://images.unsplash.com/photo-1531123897727-8f129e1688ce",
-];
+// 🔥 Auto-import all images inside /src/assets/editorials/
+const editorialImports = import.meta.glob(
+  "/src/assets/gallery/*.{jpg,jpeg,png,webp}",
+  { eager: true, query: "?url", import: "default" }
+);
+
+// Convert object → array of image URLs
+const editorialImages = Object.values(editorialImports);
 
 export default function Editorials() {
   const [open, setOpen] = useState(false);
@@ -24,7 +23,9 @@ export default function Editorials() {
     500: 2,
   };
 
-  const slides = editorialImages.map((src) => ({ src: `${src}?auto=format&fit=max&q=95` }));
+  const slides = editorialImages.map((src) => ({
+    src: `${src}?auto=format&fit=max&q=95`,
+  }));
 
   return (
     <div className="bg-[#ede3d7] min-h-screen px-4 content-below-navbar">
@@ -34,7 +35,9 @@ export default function Editorials() {
           Editorials that blend innovation with artistry.
         </h1>
         <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-          Our editorial work blends high-fashion elegance with heartfelt storytelling.<br />Each project is a celebration of style, vision, and the moments that make it uniquely yours.
+          Our editorial work blends high-fashion elegance with heartfelt storytelling.
+          <br />
+          Each project is a celebration of style, vision, and the moments that make it uniquely yours.
         </p>
       </div>
 
