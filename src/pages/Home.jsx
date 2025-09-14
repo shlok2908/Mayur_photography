@@ -63,7 +63,7 @@ export default function Home() {
     <main className="bg-[#ede3d7] min-h-screen pb-0 content-below-navbar">
 
 {/* ✅ Centered 16:9 Hero Slideshow */}
-<div className="w-full max-w-[1200px] mx-auto aspect-[16/9] overflow-hidden relative flex justify-center items-center">
+<div className="w-full max-w-[1200px] mx-auto aspect-[16/9] overflow-hidden relative flex justify-center items-center py-2 sm:py-0">
   {heroImages.map((img, index) => (
     <img
       key={index}
@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* ✅ Gallery Grid Section */}
       <section className="pb-16 text-center">
-        <h1 className="font-display mb-12 text-3xl mt-0 md:mt-8">
+        <h1 className="font-display mb-12 text-3xl mt-6 md:mt-8">
           "Every glance, every tear, every laugh — preserved forever in our
           frames."
         </h1>
