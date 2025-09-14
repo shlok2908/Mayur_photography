@@ -38,13 +38,15 @@ const featuredAlbums = featuredData
   })
   .filter(Boolean);
 
-// ✅ Import hero images dynamically
+// ✅ Import hero images dynamically and sort in ascending order
 const heroImports = import.meta.glob("../assets/hero/*.{jpg,jpeg,png,webp}", {
   eager: true,
   query: "?url",
   import: "default",
 });
-const heroImages = Object.values(heroImports);
+const heroImages = Object.entries(heroImports)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, image]) => image);
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,25 +61,27 @@ export default function Home() {
 
   return (
     <main className="bg-[#ede3d7] min-h-screen pb-0 content-below-navbar">
-      {/* ✅ Hero Slideshow Section */}
-      <section className="w-full flex justify-center items-center pb-8 relative">
-        <div className="w-full h-screen overflow-hidden relative ">
+
+{/* ✅ Fullscreen Hero Slideshow */}
+<div className="w-screen h-[60vh] min-h-[400px] max-h-[70vh] overflow-hidden relative flex justify-center items-center">
   {heroImages.map((img, index) => (
     <img
       key={index}
       src={img}
       alt={`Slide ${index}`}
-      className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ${
+      className={`absolute w-[150vw] h-full object-contain transition-opacity duration-1000 ${
         index === currentIndex ? "opacity-100" : "opacity-0"
       }`}
     />
   ))}
 </div>
-      </section>
+
+
+
 
       {/* ✅ Gallery Grid Section */}
       <section className="pb-16 text-center">
-        <h1 className="font-display mb-12 text-3xl">
+        <h1 className="font-display mb-12 text-3xl mt-0 md:mt-8">
           "Every glance, every tear, every laugh — preserved forever in our
           frames."
         </h1>
