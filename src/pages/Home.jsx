@@ -62,21 +62,19 @@ export default function Home() {
   return (
     <main className="bg-[#ede3d7] min-h-screen pb-0 content-below-navbar">
 
-{/* ✅ Fullscreen Hero Slideshow */}
-<div className="w-screen h-[40vh] sm:h-[60vh] min-h-[250px] sm:min-h-[400px] max-h-[50vh] sm:max-h-[70vh] overflow-hidden relative flex justify-center items-center">
+{/* ✅ Centered 16:9 Hero Slideshow */}
+<div className="w-full max-w-[1200px] mx-auto aspect-[16/9] overflow-hidden relative flex justify-center items-center">
   {heroImages.map((img, index) => (
     <img
       key={index}
       src={img}
       alt={`Slide ${index}`}
-      className={`absolute w-[150vw] h-full object-contain transition-opacity duration-1000 ${
+      className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
         index === currentIndex ? "opacity-100" : "opacity-0"
       }`}
     />
   ))}
 </div>
-
-
 
 
       {/* ✅ Gallery Grid Section */}
